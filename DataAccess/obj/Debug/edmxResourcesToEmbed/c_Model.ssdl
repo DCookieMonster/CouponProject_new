@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="couponModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AlertType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Costumer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="gender" Type="int" Nullable="false" />
+    <Property Name="age" Type="float" Nullable="false" />
+    <Property Name="longitude" Type="float" Nullable="false" />
+    <Property Name="latitude" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Coupon_Alert">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="alert_type" Type="int" Nullable="false" />
+    <Property Name="coupon_Id" Type="int" Nullable="false" />
+    <Property Name="text" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Coupon_Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="coupon_id" Type="int" Nullable="false" />
+    <Property Name="date" Type="datetime" Nullable="false" />
+    <Property Name="recepit" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="isUsed" Type="bit" Nullable="false" />
+    <Property Name="creditApproval" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="rank" Type="float" Nullable="false" />
+    <Property Name="rankDesc" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="qrForOrder" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="serialKey" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CouponCategories">
+    <Key>
+      <PropertyRef Name="coupon_id" />
+      <PropertyRef Name="category_id" />
+    </Key>
+    <Property Name="coupon_id" Type="int" Nullable="false" />
+    <Property Name="category_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Coupons">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="originalPrice" Type="float" Nullable="false" />
+    <Property Name="discountPrice" Type="float" Nullable="false" />
+    <Property Name="aggregatedRank" Type="float" Nullable="false" />
+    <Property Name="lastDateforUse" Type="datetime" Nullable="false" />
+    <Property Name="Admin_Approvel" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Coupons_Social_Cupon">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Firm_Owner">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sytem_Admin_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Firms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="longitude" Type="float" Nullable="false" />
+    <Property Name="latitude" Type="float" Nullable="false" />
+    <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="category" Type="int" Nullable="false" />
+    <Property Name="city" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Firm_Owner_Id" Type="int" Nullable="false" />
+    <Property Name="Sytem_Admin_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SocialNetworkProfiles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sendData" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="recivedData" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="authToken" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sytem_Admin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User_Prefrences">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="category" Type="int" Nullable="false" />
+    <Property Name="Users_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="varchar(max)" Nullable="false" />
+    <Property Name="password" Type="varchar(max)" Nullable="false" />
+    <Property Name="email" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsersCoupon_Alert">
+    <Key>
+      <PropertyRef Name="User_Id" />
+      <PropertyRef Name="Coupon_Alert_Id" />
+    </Key>
+    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="Coupon_Alert_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsersCoupon_Order">
+    <Key>
+      <PropertyRef Name="User_Id" />
+      <PropertyRef Name="Coupon_Order_Id" />
+    </Key>
+    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="Coupon_Order_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Costumer_ToTable">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Costumer" Type="Self.Costumer" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Costumer">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Costumer_ToTable_1">
+    <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+    <End Role="Costumer" Type="Self.Costumer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Costumer">
+        <PropertyRef Name="gender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Coupon_Alert_ToTable">
+    <End Role="AlertType" Type="Self.AlertType" Multiplicity="1" />
+    <End Role="Coupon_Alert" Type="Self.Coupon_Alert" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AlertType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Coupon_Alert">
+        <PropertyRef Name="alert_type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Coupon_AlertCoupons">
+    <End Role="Coupons" Type="Self.Coupons" Multiplicity="1" />
+    <End Role="Coupon_Alert" Type="Self.Coupon_Alert" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Coupons">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Coupon_Alert">
+        <PropertyRef Name="coupon_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Coupon_Order_ToTable">
+    <End Role="Coupons" Type="Self.Coupons" Multiplicity="1" />
+    <End Role="Coupon_Order" Type="Self.Coupon_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Coupons">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Coupon_Order">
+        <PropertyRef Name="coupon_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CouponCategories_ToTable">
+    <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+    <End Role="CouponCategories" Type="Self.CouponCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CouponCategories">
+        <PropertyRef Name="category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CouponCategories_ToTable_1">
+    <End Role="Coupons" Type="Self.Coupons" Multiplicity="1" />
+    <End Role="CouponCategories" Type="Self.CouponCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Coupons">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CouponCategories">
+        <PropertyRef Name="coupon_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Firm_Owner_ToTable">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Firm_Owner" Type="Self.Firm_Owner" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Firm_Owner">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Firm_OwnerFirm">
+    <End Role="Firm_Owner" Type="Self.Firm_Owner" Multiplicity="1" />
+    <End Role="Firms" Type="Self.Firms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Firm_Owner">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Firms">
+        <PropertyRef Name="Firm_Owner_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Social_Cupon_inherits_Coupons">
+    <End Role="Coupons" Type="Self.Coupons" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Coupons_Social_Cupon" Type="Self.Coupons_Social_Cupon" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Coupons">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Coupons_Social_Cupon">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sytem_Admin_ToTable">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Sytem_Admin" Type="Self.Sytem_Admin" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sytem_Admin">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sytem_AdminFirm">
+    <End Role="Sytem_Admin" Type="Self.Sytem_Admin" Multiplicity="1" />
+    <End Role="Firms" Type="Self.Firms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sytem_Admin">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Firms">
+        <PropertyRef Name="Sytem_Admin_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sytem_AdminFirm_Owner">
+    <End Role="Sytem_Admin" Type="Self.Sytem_Admin" Multiplicity="1" />
+    <End Role="Firm_Owner" Type="Self.Firm_Owner" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sytem_Admin">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Firm_Owner">
+        <PropertyRef Name="Sytem_Admin_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_PrefrencesUsers">
+    <End Role="Costumer" Type="Self.Costumer" Multiplicity="1" />
+    <End Role="User_Prefrences" Type="Self.User_Prefrences" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Costumer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User_Prefrences">
+        <PropertyRef Name="Users_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersCoupon_Alert_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UsersCoupon_Alert" Type="Self.UsersCoupon_Alert" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsersCoupon_Alert">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersCoupon_Order_Coupon_Order">
+    <End Role="Coupon_Order" Type="Self.Coupon_Order" Multiplicity="1" />
+    <End Role="UsersCoupon_Order" Type="Self.UsersCoupon_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Coupon_Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsersCoupon_Order">
+        <PropertyRef Name="Coupon_Order_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersCoupon_Order_Users">
+    <End Role="Costumer" Type="Self.Costumer" Multiplicity="1" />
+    <End Role="UsersCoupon_Order" Type="Self.UsersCoupon_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Costumer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsersCoupon_Order">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersSocialNetworkProfile">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="SocialNetworkProfiles" Type="Self.SocialNetworkProfiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SocialNetworkProfiles">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="couponModelStoreContainer">
+    <EntitySet Name="AlertType" EntityType="Self.AlertType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Costumer" EntityType="Self.Costumer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Coupon_Alert" EntityType="Self.Coupon_Alert" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Coupon_Order" EntityType="Self.Coupon_Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CouponCategories" EntityType="Self.CouponCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Coupons" EntityType="Self.Coupons" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Coupons_Social_Cupon" EntityType="Self.Coupons_Social_Cupon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Firm_Owner" EntityType="Self.Firm_Owner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Firms" EntityType="Self.Firms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SocialNetworkProfiles" EntityType="Self.SocialNetworkProfiles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sytem_Admin" EntityType="Self.Sytem_Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User_Prefrences" EntityType="Self.User_Prefrences" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsersCoupon_Alert" EntityType="Self.UsersCoupon_Alert" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsersCoupon_Order" EntityType="Self.UsersCoupon_Order" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Costumer_ToTable" Association="Self.FK_Costumer_ToTable">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Costumer" EntitySet="Costumer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Costumer_ToTable_1" Association="Self.FK_Costumer_ToTable_1">
+      <End Role="Gender" EntitySet="Gender" />
+      <End Role="Costumer" EntitySet="Costumer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Coupon_Alert_ToTable" Association="Self.FK_Coupon_Alert_ToTable">
+      <End Role="AlertType" EntitySet="AlertType" />
+      <End Role="Coupon_Alert" EntitySet="Coupon_Alert" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Coupon_AlertCoupons" Association="Self.FK_Coupon_AlertCoupons">
+      <End Role="Coupons" EntitySet="Coupons" />
+      <End Role="Coupon_Alert" EntitySet="Coupon_Alert" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Coupon_Order_ToTable" Association="Self.FK_Coupon_Order_ToTable">
+      <End Role="Coupons" EntitySet="Coupons" />
+      <End Role="Coupon_Order" EntitySet="Coupon_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CouponCategories_ToTable" Association="Self.FK_CouponCategories_ToTable">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="CouponCategories" EntitySet="CouponCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CouponCategories_ToTable_1" Association="Self.FK_CouponCategories_ToTable_1">
+      <End Role="Coupons" EntitySet="Coupons" />
+      <End Role="CouponCategories" EntitySet="CouponCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Firm_Owner_ToTable" Association="Self.FK_Firm_Owner_ToTable">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Firm_Owner" EntitySet="Firm_Owner" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Firm_OwnerFirm" Association="Self.FK_Firm_OwnerFirm">
+      <End Role="Firm_Owner" EntitySet="Firm_Owner" />
+      <End Role="Firms" EntitySet="Firms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Social_Cupon_inherits_Coupons" Association="Self.FK_Social_Cupon_inherits_Coupons">
+      <End Role="Coupons" EntitySet="Coupons" />
+      <End Role="Coupons_Social_Cupon" EntitySet="Coupons_Social_Cupon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sytem_Admin_ToTable" Association="Self.FK_Sytem_Admin_ToTable">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Sytem_Admin" EntitySet="Sytem_Admin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sytem_AdminFirm" Association="Self.FK_Sytem_AdminFirm">
+      <End Role="Sytem_Admin" EntitySet="Sytem_Admin" />
+      <End Role="Firms" EntitySet="Firms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sytem_AdminFirm_Owner" Association="Self.FK_Sytem_AdminFirm_Owner">
+      <End Role="Sytem_Admin" EntitySet="Sytem_Admin" />
+      <End Role="Firm_Owner" EntitySet="Firm_Owner" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_PrefrencesUsers" Association="Self.FK_User_PrefrencesUsers">
+      <End Role="Costumer" EntitySet="Costumer" />
+      <End Role="User_Prefrences" EntitySet="User_Prefrences" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersCoupon_Alert_Users" Association="Self.FK_UsersCoupon_Alert_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UsersCoupon_Alert" EntitySet="UsersCoupon_Alert" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersCoupon_Order_Coupon_Order" Association="Self.FK_UsersCoupon_Order_Coupon_Order">
+      <End Role="Coupon_Order" EntitySet="Coupon_Order" />
+      <End Role="UsersCoupon_Order" EntitySet="UsersCoupon_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersCoupon_Order_Users" Association="Self.FK_UsersCoupon_Order_Users">
+      <End Role="Costumer" EntitySet="Costumer" />
+      <End Role="UsersCoupon_Order" EntitySet="UsersCoupon_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersSocialNetworkProfile" Association="Self.FK_UsersSocialNetworkProfile">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="SocialNetworkProfiles" EntitySet="SocialNetworkProfiles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

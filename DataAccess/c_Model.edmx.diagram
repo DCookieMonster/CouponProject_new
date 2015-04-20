@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ce473e8f705d438ebe810e2c5f940fdd" Name="Diagram1">
+        <EntityTypeShape EntityType="couponModel.AlertType" Width="1.5" PointX="1.5" PointY="28.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="couponModel.Category" Width="1.5" PointX="1.5" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="couponModel.Costumer" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="couponModel.Coupon_Alert" Width="1.5" PointX="3.75" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="couponModel.Coupon_Order" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="couponModel.Coupon" Width="1.5" PointX="1.5" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="couponModel.Coupons_Social_Cupon" Width="1.5" PointX="3.75" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="couponModel.Firm_Owner" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="couponModel.Firm" Width="1.5" PointX="7.5" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="couponModel.Gender" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="couponModel.SocialNetworkProfile" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="couponModel.Sytem_Admin" Width="1.5" PointX="3" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="couponModel.User_Prefrences" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="couponModel.User" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="couponModel.UsersCoupon_Alert" Width="1.5" PointX="3" PointY="17.5" IsExpanded="true" />
+        <AssociationConnector Association="couponModel.FK_Coupon_Alert_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="couponModel.FK_Costumer_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="couponModel.FK_Costumer_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="couponModel.FK_User_PrefrencesUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="couponModel.FK_Coupon_AlertCoupons" ManuallyRouted="false" />
+        <AssociationConnector Association="couponModel.FK_Coupon_Order_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="couponModel.FK_Social_Cupon_inherits_Coupons" ManuallyRouted="false" />
+        <AssociationConnector Association="couponModel.FK_Firm_Owner_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="couponModel.FK_Firm_OwnerFirm" ManuallyRouted="false" />
+        <AssociationConnector Association="couponModel.FK_Sytem_AdminFirm_Owner" ManuallyRouted="false" />
+        <AssociationConnector Association="couponModel.FK_Sytem_AdminFirm" ManuallyRouted="false" />
+        <AssociationConnector Association="couponModel.FK_UsersSocialNetworkProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="couponModel.FK_Sytem_Admin_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="couponModel.FK_UsersCoupon_Alert_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="couponModel.CouponCategories" ManuallyRouted="false" />
+        <AssociationConnector Association="couponModel.UsersCoupon_Order" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

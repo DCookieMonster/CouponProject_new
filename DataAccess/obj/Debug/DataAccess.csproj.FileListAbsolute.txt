@@ -1,0 +1,10 @@
+Z:\Dropbox (BGU)\Projects\WebProjects\CouponProject\DataAccess\bin\DataAccess.dll.config
+Z:\Dropbox (BGU)\Projects\WebProjects\CouponProject\DataAccess\bin\DataAccess.dll
+Z:\Dropbox (BGU)\Projects\WebProjects\CouponProject\DataAccess\bin\DataAccess.pdb
+Z:\Dropbox (BGU)\Projects\WebProjects\CouponProject\DataAccess\bin\EntityFramework.dll
+Z:\Dropbox (BGU)\Projects\WebProjects\CouponProject\DataAccess\bin\EntityFramework.SqlServer.dll
+Z:\Dropbox (BGU)\Projects\WebProjects\CouponProject\DataAccess\bin\EntityFramework.xml
+Z:\Dropbox (BGU)\Projects\WebProjects\CouponProject\DataAccess\bin\EntityFramework.SqlServer.xml
+Z:\Dropbox (BGU)\Projects\WebProjects\CouponProject\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+Z:\Dropbox (BGU)\Projects\WebProjects\CouponProject\DataAccess\obj\Debug\DataAccess.dll
+Z:\Dropbox (BGU)\Projects\WebProjects\CouponProject\DataAccess\obj\Debug\DataAccess.pdb
