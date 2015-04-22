@@ -73,6 +73,7 @@
           <Property Name="aggregatedRank" Type="float" Nullable="false" />
           <Property Name="lastDateforUse" Type="datetime" Nullable="false" />
           <Property Name="Admin_Approvel" Type="int" Nullable="false" />
+          <Property Name="creatorId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Coupons_Social_Cupon">
           <Key>
@@ -241,6 +242,18 @@
             </Principal>
             <Dependent Role="CouponCategories">
               <PropertyRef Name="coupon_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coupons_ToTable">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Coupons" Type="Self.Coupons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Coupons">
+              <PropertyRef Name="creatorId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -424,6 +437,10 @@
             <End Role="Coupons" EntitySet="Coupons" />
             <End Role="CouponCategories" EntitySet="CouponCategories" />
           </AssociationSet>
+          <AssociationSet Name="FK_Coupons_ToTable" Association="Self.FK_Coupons_ToTable">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Coupons" EntitySet="Coupons" />
+          </AssociationSet>
           <AssociationSet Name="FK_Firm_Owner_ToTable" Association="Self.FK_Firm_Owner_ToTable">
             <End Role="Users" EntitySet="Users" />
             <End Role="Firm_Owner" EntitySet="Firm_Owner" />
@@ -547,6 +564,8 @@
           <NavigationProperty Name="Coupon_Order" Relationship="Self.FK_Coupon_Order_ToTable" FromRole="Coupons" ToRole="Coupon_Order" />
           <NavigationProperty Name="Coupons_Social_Cupon" Relationship="Self.FK_Social_Cupon_inherits_Coupons" FromRole="Coupons" ToRole="Coupons_Social_Cupon" />
           <NavigationProperty Name="Categories" Relationship="Self.CouponCategories" FromRole="Coupons" ToRole="Categories" />
+          <Property Name="creatorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="couponModel.FK_Coupons_ToTable" FromRole="Coupon" ToRole="User" />
         </EntityType>
         <EntityType Name="Coupons_Social_Cupon">
           <Key>
@@ -634,6 +653,7 @@
           <NavigationProperty Name="SocialNetworkProfiles" Relationship="Self.FK_UsersSocialNetworkProfile" FromRole="Users" ToRole="SocialNetworkProfiles" />
           <NavigationProperty Name="Sytem_Admin" Relationship="Self.FK_Sytem_Admin_ToTable" FromRole="Users" ToRole="Sytem_Admin" />
           <NavigationProperty Name="UsersCoupon_Alert" Relationship="Self.FK_UsersCoupon_Alert_Users" FromRole="Users" ToRole="UsersCoupon_Alert" />
+          <NavigationProperty Name="Coupons" Relationship="couponModel.FK_Coupons_ToTable" FromRole="User" ToRole="Coupon" />
         </EntityType>
         <EntityType Name="UsersCoupon_Alert">
           <Key>
@@ -902,7 +922,23 @@
             <End Role="Coupon_Order" EntitySet="Coupon_Order" />
             <End Role="Costumer" EntitySet="Costumers" />
           </AssociationSet>
+          <AssociationSet Name="FK_Coupons_ToTable" Association="couponModel.FK_Coupons_ToTable">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Coupon" EntitySet="Coupons" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_Coupons_ToTable">
+          <End Type="couponModel.User" Role="User" Multiplicity="1" />
+          <End Type="couponModel.Coupon" Role="Coupon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Coupon">
+              <PropertyRef Name="creatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -965,6 +1001,7 @@
           <EntitySetMapping Name="Coupons">
             <EntityTypeMapping TypeName="couponModel.Coupon">
               <MappingFragment StoreEntitySet="Coupons">
+                <ScalarProperty Name="creatorId" ColumnName="creatorId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="description" ColumnName="description" />

@@ -57,6 +57,7 @@
     <EntitySetMapping Name="Coupons">
       <EntityTypeMapping TypeName="couponModel.Coupon">
         <MappingFragment StoreEntitySet="Coupons">
+          <ScalarProperty Name="creatorId" ColumnName="creatorId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="description" ColumnName="description" />

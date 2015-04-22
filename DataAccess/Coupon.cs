@@ -29,10 +29,12 @@ namespace DataAccess
         public double aggregatedRank { get; set; }
         public System.DateTime lastDateforUse { get; set; }
         public int Admin_Approvel { get; set; }
+        public int creatorId { get; set; }
     
         public virtual ICollection<Coupon_Alert> Coupon_Alert { get; set; }
         public virtual ICollection<Coupon_Order> Coupon_Order { get; set; }
         public virtual Coupons_Social_Cupon Coupons_Social_Cupon { get; set; }
         public virtual ICollection<Category> Categories { get; set; }
+        public virtual User User { get; set; }
     }
 }

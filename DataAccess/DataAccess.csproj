@@ -47,6 +47,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -137,6 +138,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>c_Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="EntityRepository.cs" />
+    <Compile Include="Repository.cs" />
     <Compile Include="Firm.cs">
       <DependentUpon>c_Model.tt</DependentUpon>
     </Compile>
@@ -146,6 +149,7 @@
     <Compile Include="Gender.cs">
       <DependentUpon>c_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="IRepository.cs" />
     <Compile Include="SocialNetworkProfile.cs">
       <DependentUpon>c_Model.tt</DependentUpon>
     </Compile>

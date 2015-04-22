@@ -18,6 +18,7 @@ namespace DataAccess
         {
             this.SocialNetworkProfiles = new HashSet<SocialNetworkProfile>();
             this.UsersCoupon_Alert = new HashSet<UsersCoupon_Alert>();
+            this.Coupons = new HashSet<Coupon>();
         }
     
         public int Id { get; set; }
@@ -30,5 +31,6 @@ namespace DataAccess
         public virtual ICollection<SocialNetworkProfile> SocialNetworkProfiles { get; set; }
         public virtual Sytem_Admin Sytem_Admin { get; set; }
         public virtual ICollection<UsersCoupon_Alert> UsersCoupon_Alert { get; set; }
+        public virtual ICollection<Coupon> Coupons { get; set; }
     }
 }

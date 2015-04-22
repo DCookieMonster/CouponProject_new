@@ -74,6 +74,8 @@
     <NavigationProperty Name="Coupon_Order" Relationship="Self.FK_Coupon_Order_ToTable" FromRole="Coupons" ToRole="Coupon_Order" />
     <NavigationProperty Name="Coupons_Social_Cupon" Relationship="Self.FK_Social_Cupon_inherits_Coupons" FromRole="Coupons" ToRole="Coupons_Social_Cupon" />
     <NavigationProperty Name="Categories" Relationship="Self.CouponCategories" FromRole="Coupons" ToRole="Categories" />
+    <Property Name="creatorId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="couponModel.FK_Coupons_ToTable" FromRole="Coupon" ToRole="User" />
   </EntityType>
   <EntityType Name="Coupons_Social_Cupon">
     <Key>
@@ -161,6 +163,7 @@
     <NavigationProperty Name="SocialNetworkProfiles" Relationship="Self.FK_UsersSocialNetworkProfile" FromRole="Users" ToRole="SocialNetworkProfiles" />
     <NavigationProperty Name="Sytem_Admin" Relationship="Self.FK_Sytem_Admin_ToTable" FromRole="Users" ToRole="Sytem_Admin" />
     <NavigationProperty Name="UsersCoupon_Alert" Relationship="Self.FK_UsersCoupon_Alert_Users" FromRole="Users" ToRole="UsersCoupon_Alert" />
+    <NavigationProperty Name="Coupons" Relationship="couponModel.FK_Coupons_ToTable" FromRole="User" ToRole="Coupon" />
   </EntityType>
   <EntityType Name="UsersCoupon_Alert">
     <Key>
@@ -429,5 +432,21 @@
       <End Role="Coupon_Order" EntitySet="Coupon_Order" />
       <End Role="Costumer" EntitySet="Costumers" />
     </AssociationSet>
+    <AssociationSet Name="FK_Coupons_ToTable" Association="couponModel.FK_Coupons_ToTable">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Coupon" EntitySet="Coupons" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="FK_Coupons_ToTable">
+    <End Type="couponModel.User" Role="User" Multiplicity="1" />
+    <End Type="couponModel.Coupon" Role="Coupon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Coupon">
+        <PropertyRef Name="creatorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

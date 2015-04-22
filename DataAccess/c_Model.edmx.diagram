@@ -36,6 +36,7 @@
         <AssociationConnector Association="couponModel.FK_UsersCoupon_Alert_Users" ManuallyRouted="false" />
         <AssociationConnector Association="couponModel.CouponCategories" ManuallyRouted="false" />
         <AssociationConnector Association="couponModel.UsersCoupon_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="couponModel.FK_Coupons_ToTable" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
