@@ -22,10 +22,10 @@ namespace DataAccess
 
        
 
-        public virtual TEntity Create()
-        {
-            return Context.Set<TEntity>().Create();
-        }
+        //public virtual TEntity Create()
+        //{
+        //    return Context.Set<TEntity>().Create();
+        //}
 
         public virtual TEntity Create(TEntity entity)
         {
@@ -45,10 +45,10 @@ namespace DataAccess
             Context.Set<TEntity>().Remove(item);
         }
 
-        public virtual void Delete(TEntity entity)
-        {
-            Context.Set<TEntity>().Remove(entity);
-        }
+        //public virtual void Delete(TEntity entity)
+        //{
+        //    Context.Set<TEntity>().Remove(entity);
+        //}
 
         public virtual void Delete(Expression<Func<TEntity, bool>> where)
         {
@@ -69,10 +69,10 @@ namespace DataAccess
             return FindAll(where).FirstOrDefault();
         }
 
-        public IQueryable<T> Set<T>() where T : class
-        {
-            return Context.Set<T>();
-        }
+        //public IQueryable<T> Set<T>() where T : class
+        //{
+        //    return Context.Set<T>();
+        //}
 
         public virtual IQueryable<TEntity> FindAll(Expression<Func<TEntity, bool>> where = null)
         {

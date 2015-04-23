@@ -17,6 +17,9 @@ namespace DataAccess
         public static Repository<Sytem_Admin,couponEntities2> AdminRepository = new Repository<Sytem_Admin, couponEntities2>(ce1);
         public static Repository<Firm,couponEntities2> FirmRepository=new Repository<Firm, couponEntities2>(ce1);
         public static Repository<Firm_Owner,couponEntities2> FirmOwenrRepository = new Repository<Firm_Owner, couponEntities2>(ce1);
+        public static Repository<Coupon_Order,couponEntities2> CouponOrderRepository =new Repository<Coupon_Order, couponEntities2>(ce1);
+        public static Repository<Coupon_Alert, couponEntities2> CouponAlertRepository = new Repository<Coupon_Alert, couponEntities2>(ce1); 
+
         #region create
        public static int CreateCoupon( string name, string description, double orignalPrice, double aggregatedRank,
             DateTime lastDate, int adminID,int creatorId)

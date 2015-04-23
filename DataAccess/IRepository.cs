@@ -9,10 +9,10 @@ namespace DataAccess
 {
     public interface IRepository<TEntity>
     {
-        /// <summary>
-        /// Creates a new empty entity.
-        /// </summary>
-        TEntity Create();
+        ///// <summary>
+        ///// Creates a new empty entity.
+        ///// </summary>
+        //TEntity Create();
 
         /// <summary>
         /// Creates the existing entity.
@@ -29,10 +29,10 @@ namespace DataAccess
         /// </summary>
         void Delete(long id);
 
-        /// <summary>
-        /// Delete the given entity.
-        /// </summary>
-        void Delete(TEntity entity);
+        ///// <summary>
+        ///// Delete the given entity.
+        ///// </summary>
+        //void Delete(TEntity entity);
 
         /// <summary>
         /// Deletes the existing entity.
@@ -54,10 +54,10 @@ namespace DataAccess
         /// </summary>
         IQueryable<TEntity> FindAll(Expression<Func<TEntity, bool>> where = null);
 
-        /// <summary>
-        /// Finds other related entities based of type T for queries.
-        /// </summary>
-        IQueryable<T> Set<T>() where T : class;
+        ///// <summary>
+        ///// Finds other related entities based of type T for queries.
+        ///// </summary>
+        //IQueryable<T> Set<T>() where T : class;
 
         /// <summary>
         /// Save any changes to the TContext
